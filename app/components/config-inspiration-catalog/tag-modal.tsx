@@ -199,7 +199,7 @@ const TagModal = ({ isOpen, title, productMaster, dataSource, base64Photo, onClo
                         style={{
                             left: popupLeft,
                             top: popupTop,
-                            transform: "translate(-50%, -150%)"
+                            transform: "translate(-50%, -200%)"
                         }}
                     >
                         <SelectField

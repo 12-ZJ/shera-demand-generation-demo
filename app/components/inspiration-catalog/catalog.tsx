@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { truncateText } from "@/app/lib/utils/format";
 import Link from "next/link";
 import { getInspiration } from "@/app/lib/services";
+import { defaultInspirationFilter } from "@/app/lib/constants/default";
 
 export default function InspirationCatalog() {
     const [mounted, setMounted] = useState(false);
@@ -32,6 +33,7 @@ export default function InspirationCatalog() {
 
     useEffect(() => {
         setMounted(true);
+        fetchData(defaultInspirationFilter);
     }, []);
 
     if (!mounted) return null;
