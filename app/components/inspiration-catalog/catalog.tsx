@@ -6,9 +6,9 @@ import { useLoadingStore } from "@/app/store";
 import { InspirationDto, InspirationFilterDto } from "@/app/lib/types";
 import { handleApiErrorWithRedirect } from "@/app/lib/utils";
 import { useRouter } from "next/navigation";
-import { tempInspirationList } from "@/app/lib/constants/default";
 import { truncateText } from "@/app/lib/utils/format";
 import Link from "next/link";
+import { getInspiration } from "@/app/lib/services";
 
 export default function InspirationCatalog() {
     const [mounted, setMounted] = useState(false);
@@ -20,7 +20,7 @@ export default function InspirationCatalog() {
     const fetchData = useCallback(async (filter: InspirationFilterDto) => {
         try {
             setFetching(true);
-            const data = tempInspirationList; //await getInspiration(filter);
+            const data = await getInspiration(filter);
             setDataSource(data);
         } catch (error) {
             handleApiErrorWithRedirect(error, router);
