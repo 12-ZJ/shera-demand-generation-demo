@@ -7,7 +7,6 @@ import { ExportDto, InspirationExtended, InspirationProductModel, Option, Produc
 import { createChangeHandler, createChangeHandlerArray, getInputClass, handleApiErrorWithRedirect, mergeWithFallback, removeByIndex, toastWarning, validate, validateRequired } from "@/app/lib/utils";
 import { downloadBase64File, downloadLocalFile, fileToBase64 } from "@/app/lib/utils/file";
 import { useLoadingStore } from "@/app/store";
-import { useParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import Form from "../form/config-layout";
 import { InputLayout } from "../form/input-layout";
@@ -15,6 +14,7 @@ import { ActionButton, Checkbox, IconButton, SelectField } from "../common";
 import Upload from "../common/upload";
 import { FileImage, Plus, Trash2 } from "lucide-react";
 import TagModal from "./tag-modal";
+import { useParams, useRouter } from "next/navigation";
 
 const defaultError: Partial<Record<keyof InspirationExtended, string>> = {
     filename: "",
